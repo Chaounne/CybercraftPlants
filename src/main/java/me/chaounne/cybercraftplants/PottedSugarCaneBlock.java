@@ -25,11 +25,9 @@ import net.minecraft.world.World;
 public class PottedSugarCaneBlock extends Block {
     public static final IntProperty AGE = IntProperty.of("age", 0, 3);
     public static final IntProperty PLANT_DAY = IntProperty.of("plant_day", 0, 3);
-
-    // Forme du pot de fleur
+    
     protected static final VoxelShape SHAPE = Block.createCuboidShape(5.0, 0.0, 5.0, 11.0, 6.0, 11.0);
 
-    // Temps de croissance en ticks (5 minutes = 6000 ticks)
     private static final int GROWTH_TIME = 6000;
 
     public PottedSugarCaneBlock() {
