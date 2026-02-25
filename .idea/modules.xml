@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CybercraftPlants.client.iml" filepath="$PROJECT_DIR$/.idea/modules/CybercraftPlants.client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CybercraftPlants.main.iml" filepath="$PROJECT_DIR$/.idea/modules/CybercraftPlants.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CybercraftPlants.test.iml" filepath="$PROJECT_DIR$/.idea/modules/CybercraftPlants.test.iml" />
+    </modules>
+  </component>
+</project>

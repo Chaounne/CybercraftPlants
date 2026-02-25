@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "cybercraftplants",
+  "version": "${version}",
+  "name": "CybercraftPlants",
+  "description": "",
+  "authors": ["Chaoune"],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/cybercraftplants/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-datagen": [
+      "me.chaounne.cybercraftplants.client.CybercraftplantsDataGenerator"
+    ],
+    "client": [
+      "me.chaounne.cybercraftplants.client.CybercraftplantsClient"
+    ],
+    "main": [
+      "me.chaounne.cybercraftplants.Cybercraftplants"
+    ]
+  },
+  "mixins": [
+    "cybercraftplants.mixins.json",
+    {
+      "config": "cybercraftplants.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
