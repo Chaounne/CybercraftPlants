@@ -1,16 +1,24 @@
 {
-  "variants": {
-    "age=0": {
-      "model": "cybercraftplants:block/potted_sugar_cane_stage0"
+  "multipart": [
+    {
+      "apply": { "model": "cybercraftplants:block/pot_base" }
     },
-    "age=1": {
-      "model": "cybercraftplants:block/potted_sugar_cane_stage1"
+    {
+      "when": { "age": "0" },
+      "apply": { "model": "cybercraftplants:block/sugar_cane_overlay_stage0" }
     },
-    "age=2": {
-      "model": "cybercraftplants:block/potted_sugar_cane_stage2"
+    {
+      "when": { "age": "1" },
+      "apply": { "model": "cybercraftplants:block/sugar_cane_overlay_stage1" }
     },
-    "age=3": {
-      "model": "cybercraftplants:block/potted_sugar_cane_stage3"
+    {
+      "when": { "age": "2" },
+      "apply": { "model": "cybercraftplants:block/sugar_cane_overlay_stage2" }
+    },
+    {
+      "when": { "age": "3" },
+      "apply": { "model": "cybercraftplants:block/sugar_cane_overlay_stage3" }
     }
-  }
+  ]
 }
+

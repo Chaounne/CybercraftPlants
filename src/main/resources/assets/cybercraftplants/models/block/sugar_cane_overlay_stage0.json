@@ -1,0 +1,30 @@
+{
+	"render_type": "minecraft:cutout",
+	"textures": {
+        "plant": "block/sugar_cane"
+	},
+	"elements": [
+		{
+			"from": [3.4, 0, 8],
+			"to": [12.6, 10, 8],
+			"shade": false,
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 4, 8], "rescale": true},
+			"color": 8,
+			"faces": {
+				"north": {"uv": [8, 0, 16, 16], "texture": "#plant", "tintindex": 0},
+				"south": {"uv": [8, 0, 16, 16], "texture": "#plant", "tintindex": 0}
+			}
+		},
+		{
+			"from": [8, 0, 3.4],
+			"to": [8, 10, 12.6],
+			"shade": false,
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 4, 8], "rescale": true},
+			"color": 8,
+			"faces": {
+				"east": {"uv": [8, 0, 16, 16], "texture": "#plant", "tintindex": 0},
+				"west": {"uv": [8, 0, 16, 16], "texture": "#plant", "tintindex": 0}
+			}
+		}
+	]
+}

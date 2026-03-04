@@ -1,11 +1,12 @@
-package me.chaounne.cybercraftplants;
+package me.chaounne.cybercraftplants.block;
 
+import me.chaounne.cybercraftplants.Cybercraftplants;
+import me.chaounne.cybercraftplants.ModConfig;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.HoeItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.server.world.ServerWorld;
@@ -19,14 +20,17 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
 public class PottedSugarCaneBlock extends Block {
     public static final IntProperty AGE = IntProperty.of("age", 0, 3);
     public static final IntProperty PLANT_DAY = IntProperty.of("plant_day", 0, 3);
-    
-    protected static final VoxelShape SHAPE = Block.createCuboidShape(5.0, 0.0, 5.0, 11.0, 6.0, 11.0);
+
+    protected static final VoxelShape SHAPE = VoxelShapes.union(
+            Block.createCuboidShape(2, 0, 2, 14, 8, 14),
+            Block.createCuboidShape(3, 8, 3, 13, 8.1, 13));
 
     private static final int GROWTH_TIME = 6000;
 
@@ -74,7 +78,7 @@ public class PottedSugarCaneBlock extends Block {
             world.setBlockState(pos, state.with(AGE, 0), Block.NOTIFY_ALL);
 
             world.playSound(null, pos, SoundEvents.BLOCK_CROP_BREAK, SoundCategory.BLOCKS, 1.0f, 0.8f + world.random.nextFloat() * 0.4f);
-            world.setBlockState(pos, Blocks.FLOWER_POT.getDefaultState(), Block.NOTIFY_ALL);
+            world.setBlockState(pos, Cybercraftplants.GROWING_POT.getDefaultState(), Block.NOTIFY_ALL);
 
             return ActionResult.SUCCESS;
         }

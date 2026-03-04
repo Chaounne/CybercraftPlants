@@ -10,5 +10,6 @@ public class CybercraftplantsClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         BlockRenderLayerMap.INSTANCE.putBlock(Cybercraftplants.POTTED_SUGAR_CANE, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(Cybercraftplants.POTTED_WHEAT, RenderLayer.getCutout());
     }
 }
