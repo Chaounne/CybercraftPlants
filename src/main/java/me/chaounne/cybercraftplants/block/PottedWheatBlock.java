@@ -1,5 +1,6 @@
 package me.chaounne.cybercraftplants.block;
 
+import me.chaounne.cybercraftplants.Cybercraftplants;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -87,7 +88,7 @@ public class PottedWheatBlock extends Block {
                 int seeds = 1 + world.random.nextInt(3);
                 dropStack(world, pos, new ItemStack(Items.WHEAT_SEEDS, seeds));
 
-                world.setBlockState(pos, Blocks.FLOWER_POT.getDefaultState());
+                world.setBlockState(pos, Cybercraftplants.GROWING_POT.getDefaultState());
 
                 world.playSound(null, pos,
                         SoundEvents.BLOCK_CROP_BREAK,

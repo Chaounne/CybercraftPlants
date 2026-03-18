@@ -55,6 +55,22 @@ public class GrowingPotBlock extends Block {
             return ActionResult.SUCCESS;
         }
 
+        if (stack.isOf(Items.WHEAT_SEEDS)){
+            if (!world.isClient) {
+                long day = world.getTimeOfDay() / 24000L;
+                world.setBlockState(pos, Cybercraftplants.POTTED_WHEAT.getDefaultState()
+                        .with(PottedWheatBlock.AGE, 0)
+                        .with(PottedWheatBlock.PLANT_DAY, (int) (day % 4)));
+
+                if (!player.getAbilities().creativeMode) {
+                    stack.decrement(1);
+                }
+
+                world.playSound(null, pos, SoundEvents.BLOCK_CROP_BREAK, SoundCategory.BLOCKS, 1.0f, 1.0f);
+            }
+            return ActionResult.SUCCESS;
+        }
+
         return ActionResult.PASS;
     }
 }
