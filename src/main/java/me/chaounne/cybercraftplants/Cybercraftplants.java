@@ -22,7 +22,7 @@ public class Cybercraftplants implements ModInitializer {
     public static final Block POTTED_SUGAR_CANE = new PottedSugarCaneBlock();
     public static final Block POTTED_WHEAT = new PottedWheatBlock();
     public static final Block GROWING_POT = new GrowingPotBlock();
-    public static final Item WATERING_CAN = new WateringCanItem(new FabricItemSettings().maxCount(1));
+    public static final Item WATERING_CAN = new WateringCanItem(new FabricItemSettings().maxCount(1).maxDamage(250));
 
     @Override
     public void onInitialize() {

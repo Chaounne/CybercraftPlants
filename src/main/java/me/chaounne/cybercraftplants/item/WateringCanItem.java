@@ -29,14 +29,22 @@ public class WateringCanItem extends Item {
 
         BlockState state = world.getBlockState(pos);
 
+        if (stack.getDamage() >= stack.getMaxDamage()) {
+            return ActionResult.FAIL;
+        }
+
         if (state.contains(PottedSugarCaneBlock.AGE)) {
             int age = context.getWorld().getBlockState(pos).get(PottedSugarCaneBlock.AGE);
             int plantDay = context.getWorld().getBlockState(pos).get(PottedSugarCaneBlock.PLANT_DAY);
             System.out.println("PLANT DAY " + plantDay);
             System.out.println("AGE " + age);
             if (age < 3) {
-                world.setBlockState(pos, state.with(PottedSugarCaneBlock.AGE, age + 1));
-                world.setBlockState(pos, state.with(PottedSugarCaneBlock.PLANT_DAY, (plantDay+1)%4));
+                world.setBlockState(pos, state
+                        .with(PottedSugarCaneBlock.PLANT_DAY, (plantDay - 1 + 4) % 4)
+                );
+                PottedSugarCaneBlock block = (PottedSugarCaneBlock) state.getBlock();
+                block.addAge(world, pos, state, 1);
+                stack.damage(1, player, p -> p.sendToolBreakStatus(context.getHand()));
                 playEffects(world, pos);
                 return ActionResult.SUCCESS;
             }
@@ -48,8 +56,12 @@ public class WateringCanItem extends Item {
             System.out.println("PLANT DAY " + plantDay);
             System.out.println("AGE " + age);
             if (age < 7) {
-                world.setBlockState(pos, state.with(PottedWheatBlock.AGE, age + 1));
-                world.setBlockState(pos, state.with(PottedWheatBlock.PLANT_DAY, (plantDay+1)%4));
+                world.setBlockState(pos, state
+                        .with(PottedWheatBlock.PLANT_DAY, (plantDay - 1 + 8) % 8)
+                );
+                PottedWheatBlock block = (PottedWheatBlock) state.getBlock();
+                block.addAge(world, pos, state, 1);
+                stack.damage(1, player, p -> p.sendToolBreakStatus(context.getHand()));
                 playEffects(world, pos);
                 return ActionResult.SUCCESS;
             }

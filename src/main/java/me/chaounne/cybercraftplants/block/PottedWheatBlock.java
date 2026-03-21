@@ -119,4 +119,15 @@ public class PottedWheatBlock extends Block {
             }
         }
     }
+
+    public void addAge(World world, BlockPos pos, BlockState state, int amount) {
+        if (world.isClient) return;
+
+        int plantDay = state.get(PLANT_DAY);
+
+        int newPlantDay = (plantDay - amount + 8) % 8;
+
+        world.setBlockState(pos, state.with(PLANT_DAY, newPlantDay), Block.NOTIFY_ALL);
+        updateAge(world, pos, state);
+    }
 }
