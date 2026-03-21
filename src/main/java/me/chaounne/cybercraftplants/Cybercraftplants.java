@@ -3,6 +3,7 @@ package me.chaounne.cybercraftplants;
 import me.chaounne.cybercraftplants.block.GrowingPotBlock;
 import me.chaounne.cybercraftplants.block.PottedSugarCaneBlock;
 import me.chaounne.cybercraftplants.block.PottedWheatBlock;
+import me.chaounne.cybercraftplants.item.WateringCanItem;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -21,6 +22,7 @@ public class Cybercraftplants implements ModInitializer {
     public static final Block POTTED_SUGAR_CANE = new PottedSugarCaneBlock();
     public static final Block POTTED_WHEAT = new PottedWheatBlock();
     public static final Block GROWING_POT = new GrowingPotBlock();
+    public static final Item WATERING_CAN = new WateringCanItem(new FabricItemSettings().maxCount(1));
 
     @Override
     public void onInitialize() {
@@ -40,11 +42,13 @@ public class Cybercraftplants implements ModInitializer {
 
         // Item
         Registry.register(Registries.ITEM, id_pot, new BlockItem(GROWING_POT, new FabricItemSettings()));
+        Identifier id_watering_can = new Identifier(MOD_ID, "watering_can");
+        Registry.register(Registries.ITEM, id_watering_can, WATERING_CAN);
 
         // Item Group
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(content -> {
             content.add(GROWING_POT);
-
+            content.add(WATERING_CAN);
         });
 
         //UseBlockCallback.EVENT.register(this::onUseBlock);
