@@ -180,7 +180,7 @@ public class PottedSugarCaneBlock extends Block {
 
         int plantDay = state.get(PLANT_DAY);
 
-        int newPlantDay = (plantDay - amount + 8) % 8;
+        int newPlantDay = (plantDay - amount + 4) % 4;
 
         world.setBlockState(pos, state.with(PLANT_DAY, newPlantDay), Block.NOTIFY_ALL);
         updateAge(world, pos, state);
